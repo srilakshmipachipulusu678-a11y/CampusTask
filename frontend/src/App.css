@@ -1,0 +1,845 @@
+/* ==========================================================================
+   CampusTask Academic Portal - Official Enterprise Styling
+   Institution: N.B.K.R. Institute of Science & Technology (Autonomous)
+   Style Philosophy: Crisp, authoritative, architectural, enterprise-grade.
+   Strictly zero AI-cliché bubbly shapes or rounded borders (max radius: 3px).
+   ========================================================================== */
+
+/* ---------- PAGE ROOT ---------- */
+.portal-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   1. INSTITUTIONAL MASTHEAD (TOP BAR)
+   ========================================================================== */
+.inst-masthead {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #cbd5e1;
+  position: relative;
+  z-index: 20;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+.masthead-gold-bar {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #b38312 0%, #d4a017 50%, #b38312 100%);
+}
+
+.masthead-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.masthead-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.masthead-logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.masthead-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.masthead-primary-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.masthead-inst-name {
+  color: #0a2540;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.masthead-badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.badge-autonomous {
+  background-color: #0f2d52;
+  color: #ffffff;
+  border: 1px solid #0f2d52;
+}
+
+.badge-estd {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.masthead-sub {
+  color: #475569;
+  font-size: 11.5px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.masthead-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  text-align: right;
+  font-size: 11.5px;
+  color: #475569;
+}
+
+.meta-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #0f2d52;
+  background-color: #eaf1f9;
+  border: 1px solid #c7dcf0;
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+}
+
+.meta-status-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #16a34a;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.meta-session {
+  font-weight: 600;
+  color: #334155;
+  font-size: 11px;
+}
+
+.meta-contact {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   2. MAIN PORTAL WORKSPACE CANVAS
+   ========================================================================== */
+.portal-main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 20px;
+  background:
+    linear-gradient(rgba(10, 25, 47, 0.72), rgba(10, 25, 47, 0.78)),
+    url("/images/nbkr-building.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.portal-container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.portal-frame {
+  display: flex;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #1e3a5f;
+  border-radius: 3px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.15),
+    0 16px 36px -4px rgba(10, 25, 47, 0.35);
+  overflow: hidden;
+  min-height: 560px;
+}
+
+/* ==========================================================================
+   3. LEFT PANEL: INSTITUTIONAL SHOWCASE
+   ========================================================================== */
+.portal-showcase {
+  flex: 1 1 45%;
+  background-color: #0a1f38;
+  border-right: 1px solid #19385c;
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 32px;
+  position: relative;
+  background-image:
+    linear-gradient(175deg, rgba(10, 31, 56, 0.94) 0%, rgba(6, 20, 38, 0.97) 100%);
+}
+
+.showcase-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.showcase-header-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #d4a017;
+  border-bottom: 2px solid #b38312;
+  padding-bottom: 3px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.showcase-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.2px;
+}
+
+.showcase-desc {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.55;
+  margin: 0 0 24px 0;
+}
+
+.showcase-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.pillar-icon-box {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  background-color: #122b49;
+  border: 1px solid #1d436f;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #60a5fa;
+  margin-top: 2px;
+}
+
+.pillar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: left;
+}
+
+.pillar-text strong {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #f1f5f9;
+  letter-spacing: 0.1px;
+}
+
+.pillar-text span {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+.showcase-security {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  background-color: rgba(15, 41, 74, 0.6);
+  border: 1px solid #1a3c63;
+  border-radius: 2px;
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.45;
+  margin-top: auto;
+}
+
+.showcase-security svg {
+  min-width: 16px;
+  margin-top: 1px;
+  color: #e2ba4d;
+}
+
+/* ==========================================================================
+   4. RIGHT PANEL: AUTHENTICATION DESK
+   ========================================================================== */
+.portal-auth-panel {
+  flex: 1 1 55%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 42px;
+}
+
+.auth-panel-inner {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.auth-header {
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.auth-title {
+  color: #0a2540;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  margin: 0 0 6px 0;
+}
+
+.auth-subtitle {
+  color: #64748b;
+  font-size: 12.5px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ---------- ALERTS ---------- */
+.auth-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 2px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.auth-alert svg {
+  min-width: 16px;
+  margin-top: 1px;
+}
+
+.alert-error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-left: 3px solid #dc2626;
+  color: #991b1b;
+}
+
+.alert-success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-left: 3px solid #16a34a;
+  color: #166534;
+}
+
+/* ---------- ROLE SWITCHER TABS ---------- */
+.role-selector-wrap {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #475569;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.field-label .req {
+  color: #dc2626;
+}
+
+.role-tab-group {
+  display: flex;
+  border: 1px solid #cbd5e1;
+  background-color: #f8fafc;
+  border-radius: 3px;
+  padding: 3px;
+  gap: 3px;
+}
+
+.role-tab-item {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 7px 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: relative;
+}
+
+.role-tab-item:hover:not(.active) {
+  background-color: #e2e8f0;
+  color: #0f2d52;
+}
+
+.role-tab-item.active {
+  background-color: #0f2d52;
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.role-tab-item:focus-visible {
+  outline: 2px solid #0f2d52;
+  outline-offset: 1px;
+}
+
+/* ---------- FORM CONTROLS ---------- */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.field-label-row .field-label {
+  margin-bottom: 0;
+}
+
+.text-action-link {
+  background: none;
+  border: none;
+  color: #1d4ed8;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.text-action-link:hover {
+  color: #0a2540;
+  text-decoration: underline;
+}
+
+.input-field-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-field-icon {
+  position: absolute;
+  left: 12px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.input-field-wrap input {
+  width: 100%;
+  height: 42px;
+  padding: 0 40px 0 38px;
+  font-size: 13.5px;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+
+.input-field-wrap input::placeholder {
+  color: #94a3b8;
+}
+
+.input-field-wrap input:focus {
+  border-color: #0f2d52;
+  box-shadow: 0 0 0 1px #0f2d52;
+}
+
+.input-field-wrap input:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.input-eye-toggle {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+
+.input-eye-toggle:hover {
+  color: #0f2d52;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+.portal-submit-btn {
+  height: 43px;
+  width: 100%;
+  margin-top: 6px;
+  background-color: #0f2d52;
+  color: #ffffff;
+  border: 1px solid #0a1f38;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 1px 3px rgba(15, 45, 82, 0.2);
+}
+
+.portal-submit-btn:hover:not(:disabled) {
+  background-color: #0a1f38;
+  border-color: #061424;
+}
+
+.portal-submit-btn:focus-visible {
+  outline: 2px solid #0f2d52;
+  outline-offset: 2px;
+}
+
+.portal-submit-btn:disabled {
+  background-color: #64748b;
+  border-color: #475569;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.btn-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- TRUST FOOTER ---------- */
+.auth-trust-footer {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-separator {
+  color: #cbd5e1;
+}
+
+/* ==========================================================================
+   5. PASSWORD RECOVERY STEP BAR & CONTROLS
+   ========================================================================== */
+.recovery-steps-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 3px;
+  padding: 8px 14px;
+}
+
+.recovery-step-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.step-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background-color: #e2e8f0;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.recovery-step-item.active {
+  color: #0f2d52;
+}
+
+.recovery-step-item.active .step-num {
+  background-color: #0f2d52;
+  color: #ffffff;
+}
+
+.recovery-step-item.completed {
+  color: #16a34a;
+}
+
+.recovery-step-item.completed .step-num {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
+.step-divider {
+  flex: 1;
+  height: 1px;
+  background-color: #cbd5e1;
+  margin: 0 10px;
+}
+
+.otp-input-field {
+  letter-spacing: 6px;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 18px !important;
+  font-weight: 700;
+  text-align: center;
+}
+
+.field-hint {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 5px;
+  line-height: 1.35;
+}
+
+.back-to-login-row {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.portal-back-btn {
+  background: none;
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.portal-back-btn:hover:not(:disabled) {
+  background-color: #f1f5f9;
+  color: #0f2d52;
+  border-color: #94a3b8;
+}
+
+/* ==========================================================================
+   6. INSTITUTIONAL FOOTER
+   ========================================================================== */
+.inst-footer {
+  width: 100%;
+  background-color: #0a1f38;
+  border-top: 1px solid #19385c;
+  color: #94a3b8;
+  padding: 14px 20px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  text-align: center;
+  z-index: 10;
+}
+
+.inst-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer-copy {
+  color: #cbd5e1;
+  font-weight: 500;
+  margin: 0;
+}
+
+.footer-meta {
+  color: #64748b;
+  font-size: 10.5px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 960px) {
+  .masthead-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .masthead-meta {
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    padding-top: 8px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .portal-frame {
+    flex-direction: column;
+  }
+
+  .portal-showcase {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid #19385c;
+    padding: 24px 20px;
+  }
+
+  .portal-auth-panel {
+    flex: none;
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .masthead-brand {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .masthead-logo {
+    height: 48px;
+  }
+
+  .masthead-inst-name {
+    font-size: 16px;
+  }
+
+  .masthead-badges {
+    margin-top: 2px;
+  }
+
+  .showcase-pillars {
+    display: none;
+  }
+
+  .role-tab-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portal-main {
+    padding: 16px 10px;
+  }
+
+  .auth-trust-footer {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .trust-separator {
+    display: none;
+  }
+}
