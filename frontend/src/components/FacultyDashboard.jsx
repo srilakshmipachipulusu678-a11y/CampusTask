@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { BACKEND_URL } from "../config";
 import "./FacultyDashboard.css";
 
 function FacultyDashboard({ user, onLogout }) {
@@ -115,7 +116,7 @@ if (!attendanceSubject || !attendanceDate) {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/faculty/attendance/${user.id}/${subject_id}/${section_id}/${academic_year_id}/${attendanceDate}`
+        `${BACKEND_URL}/api/faculty/attendance/${user.id}/${subject_id}/${section_id}/${academic_year_id}/${attendanceDate}`
       );
       const data = await response.json();
       setAttendanceMessage(data.hasClass ? "" : "No classes today");
@@ -165,7 +166,7 @@ if (!attendanceSubject || !attendanceDate) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/faculty/attendance",
+        `${BACKEND_URL}/api/faculty/attendance`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -222,7 +223,7 @@ const fetchMidMarks = async () => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/faculty/midmarks/${user.id}/${subject_id}/${section_id}/${academic_year_id}/${examType}`
+      `${BACKEND_URL}/api/faculty/midmarks/${user.id}/${subject_id}/${section_id}/${academic_year_id}/${examType}`
     );
 
     const data = await response.json();
@@ -279,7 +280,7 @@ const handleSaveMidMarks = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/faculty/midmarks",
+      `${BACKEND_URL}/api/faculty/midmarks`,
       {
         method: "POST",
         headers: {
@@ -333,7 +334,7 @@ const fetchSemesterResultsStudents = async () => {
     }
 
     const response = await fetch(
-      `http://localhost:5000/api/faculty/semester-results/${user.id}?subjectId=${selectedSubject.subject_id}&sectionId=${selectedSubject.section_id}&academicYearId=${selectedSubject.academic_year_id}`
+      `${BACKEND_URL}/api/faculty/semester-results/${user.id}?subjectId=${selectedSubject.subject_id}&sectionId=${selectedSubject.section_id}&academicYearId=${selectedSubject.academic_year_id}`
     );
 
     const data = await response.json();
@@ -406,7 +407,7 @@ const handleSubmitSemesterResults = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/faculty/semester-results/upload",
+      `${BACKEND_URL}/api/faculty/semester-results/upload`,
       {
         method: "POST",
         headers: {
@@ -453,7 +454,7 @@ const fetchTimetable = async () => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/faculty/timetable/${user.id}`
+      `${BACKEND_URL}/api/faculty/timetable/${user.id}`
     );
 
     const data = await response.json();
@@ -488,7 +489,7 @@ useEffect(() => {
     setLoadingSubjects(true);
     setSubjectsError("");
 
-    fetch(`http://localhost:5000/api/faculty/subjects/${user.id}`)
+    fetch(`${BACKEND_URL}/api/faculty/subjects/${user.id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch subjects");
@@ -524,7 +525,7 @@ useEffect(() => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/faculty/assignments/${user.id}`
+        `${BACKEND_URL}/api/faculty/assignments/${user.id}`
       );
 
       const data = await response.json();
@@ -556,7 +557,7 @@ const fetchSubmissions = async (assignmentId) => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/faculty/submissions/${assignmentId}?faculty_id=${user.id}`
+      `${BACKEND_URL}/api/faculty/submissions/${assignmentId}?faculty_id=${user.id}`
     );
 
     const data = await response.json();
@@ -620,7 +621,7 @@ const handleEvaluateSubmission = async (event) => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/faculty/submissions/${evaluatingSubmission.submission_id}/evaluate`,
+      `${BACKEND_URL}/api/faculty/submissions/${evaluatingSubmission.submission_id}/evaluate`,
       {
         method: "PUT",
         headers: {
@@ -717,8 +718,8 @@ const handleEvaluateSubmission = async (event) => {
 
     try {
       const url = editingAssignment
-        ? `http://localhost:5000/api/faculty/assignments/${editingAssignment.id}`
-        : "http://localhost:5000/api/faculty/assignments";
+        ? `${BACKEND_URL}/api/faculty/assignments/${editingAssignment.id}`
+        : `${BACKEND_URL}/api/faculty/assignments`;
 
       const response = await fetch(url, {
         method: editingAssignment ? "PUT" : "POST",
@@ -762,7 +763,7 @@ const handleEvaluateSubmission = async (event) => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/faculty/assignments/${assignmentId}`,
+        `${BACKEND_URL}/api/faculty/assignments/${assignmentId}`,
         {
           method: "DELETE",
           headers: {
@@ -1532,7 +1533,7 @@ const handleEvaluateSubmission = async (event) => {
                   {previewSubmission.file_path?.toLowerCase().endsWith(".pdf") ? (
                     <iframe
                       title="Student Assignment PDF"
-                      src={`http://localhost:5000/api/faculty/submission-file/${previewSubmission.submission_id}?faculty_id=${user.id}`}
+                      src={`${BACKEND_URL}/api/faculty/submission-file/${previewSubmission.submission_id}?faculty_id=${user.id}`}
                       className="submission-pdf-preview"
                     />
                   ) : (
@@ -1544,7 +1545,7 @@ const handleEvaluateSubmission = async (event) => {
                       </p>
 
                       <a
-                        href={`http://localhost:5000/api/faculty/submission-file/${previewSubmission.submission_id}?faculty_id=${user.id}`}
+                        href={`${BACKEND_URL}/api/faculty/submission-file/${previewSubmission.submission_id}?faculty_id=${user.id}`}
                         target="_blank"
                         rel="noreferrer"
                         className="view-submissions-btn"

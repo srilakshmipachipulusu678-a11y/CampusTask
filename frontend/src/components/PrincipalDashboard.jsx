@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { BACKEND_URL } from "../config";
 import "./PrincipalDashboard.css";
 
 function PrincipalDashboard({ user, onLogout }) {
@@ -62,7 +63,7 @@ const fetchDashboardOverview = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/principal/dashboard-overview",
+      `${BACKEND_URL}/api/principal/dashboard-overview`,
       { credentials: "include" }
     );
 
@@ -86,7 +87,7 @@ const fetchFacultyMonitoring = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/principal/faculty-monitoring",
+      `${BACKEND_URL}/api/principal/faculty-monitoring`,
       { credentials: "include" }
     );
 
@@ -110,7 +111,7 @@ const fetchStudentMonitoring = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/principal/student-monitoring",
+      `${BACKEND_URL}/api/principal/student-monitoring`,
       { credentials: "include" }
     );
 
@@ -134,7 +135,7 @@ const fetchAttendanceOverview = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/principal/attendance-overview",
+      `${BACKEND_URL}/api/principal/attendance-overview`,
       { credentials: "include" }
     );
 
@@ -160,7 +161,7 @@ const fetchAttendanceBreakdown = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/principal/attendance-breakdown",
+      `${BACKEND_URL}/api/principal/attendance-breakdown`,
       { credentials: "include" }
     );
 
@@ -186,7 +187,7 @@ const fetchMidMarksOverview = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/principal/mid-marks-overview",
+      `${BACKEND_URL}/api/principal/mid-marks-overview`,
       { credentials: "include" }
     );
 
@@ -211,7 +212,7 @@ const fetchAcademicReports = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/principal/academic-reports",
+      `${BACKEND_URL}/api/principal/academic-reports`,
       { credentials: "include" }
     );
 
@@ -235,7 +236,7 @@ const fetchTimetable = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/principal/timetable-overview",
+      `${BACKEND_URL}/api/principal/timetable-overview`,
       { credentials: "include" }
     );
 
@@ -259,7 +260,7 @@ const fetchNotifications = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/principal/notifications",
+      `${BACKEND_URL}/api/principal/notifications`,
       { credentials: "include" }
     );
 
@@ -283,7 +284,7 @@ const fetchNotifications = async () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/principal/semester-results",
+        `${BACKEND_URL}/api/principal/semester-results`,
         { credentials: "include" }
       );
 
@@ -310,7 +311,7 @@ const fetchNotifications = async () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/principal/semester-results/${resultId}/${action}`,
+        `${BACKEND_URL}/api/principal/semester-results/${resultId}/${action}`,
         {
           method: "PUT",
           credentials: "include"

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { BACKEND_URL } from "../config";
 import "./Dashboard.css";
 import {
   LineChart,
@@ -62,7 +63,7 @@ const [dashboardSummary, setDashboardSummary] = useState({
     if (activeSection === "profile" && user?.id) {
       setProfileLoading(true);
 
-      fetch(`http://localhost:5000/api/student/profile/${user.id}`)
+      fetch(`${BACKEND_URL}/api/student/profile/${user.id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to load student profile");
@@ -90,7 +91,7 @@ useEffect(() => {
     user?.id
   ) {
     fetch(
-      `http://localhost:5000/api/student/assignments/submission/${user.id}`
+      `${BACKEND_URL}/api/student/assignments/submission/${user.id}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -111,7 +112,7 @@ useEffect(() => {
   ) {
       setAssignmentsLoading(true);
 
-      fetch(`http://localhost:5000/api/student/assignments/${user.id}`)
+      fetch(`${BACKEND_URL}/api/student/assignments/${user.id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to load assignments");
@@ -138,7 +139,7 @@ if ((activeSection === "attendance" || activeSection === "dashboard") && user?.i
     setAttendanceLoading(true);
     setAttendanceError("");
 
-    fetch(`http://localhost:5000/api/student/attendance/${user.id}`)
+    fetch(`${BACKEND_URL}/api/student/attendance/${user.id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch attendance");
@@ -171,7 +172,7 @@ useEffect(() => {
     setMarksLoading(true);
     setMarksError("");
 
-    fetch(`http://localhost:5000/api/student/midmarks/${user.id}`)
+    fetch(`${BACKEND_URL}/api/student/midmarks/${user.id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch marks");
@@ -196,7 +197,7 @@ useEffect(() => {
     setResultsLoading(true);
     setResultsError("");
 
-    fetch(`http://localhost:5000/api/student/results/${user.id}`)
+    fetch(`${BACKEND_URL}/api/student/results/${user.id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch semester results");
@@ -223,7 +224,7 @@ useEffect(() => {
     setTimetableLoading(true);
     setTimetableError("");
 
-    fetch(`http://localhost:5000/api/student/timetable/${user.id}`)
+    fetch(`${BACKEND_URL}/api/student/timetable/${user.id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch timetable");
@@ -252,7 +253,7 @@ if (!user?.id) return;
 
     try {
       const response = await fetch(
-  `http://localhost:5000/api/notifications/${user.id}/student`
+  `${BACKEND_URL}/api/notifications/${user.id}/student`
 );
 
       if (!response.ok) {
@@ -325,7 +326,7 @@ const handleAssignmentUpload = async (assignmentId) => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/student/assignments/submit",
+      `${BACKEND_URL}/api/student/assignments/submit`,
       {
         method: "POST",
         body: formData,
@@ -343,7 +344,7 @@ const handleAssignmentUpload = async (assignmentId) => {
 
     // Refresh submission status
     const statusResponse = await fetch(
-      `http://localhost:5000/api/student/assignments/submission/${user.id}`
+      `${BACKEND_URL}/api/student/assignments/submission/${user.id}`
     );
 
     const statusData = await statusResponse.json();
@@ -412,7 +413,7 @@ const handleAssignmentUpload = async (assignmentId) => {
               <button
                 onClick={async () => {
                   const response = await fetch(
-`http://localhost:5000/api/notifications/${notification.id}/read/${user.id}/student`,
+`${BACKEND_URL}/api/notifications/${notification.id}/read/${user.id}/student`,
                     { method: "PUT" }
                   );
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { BACKEND_URL } from "./config";
 
 import StudentDashboard from "./components/StudentTemp.jsx";
 import AdminDashboard from "./components/AdminDashboard.jsx";
@@ -29,7 +30,7 @@ function App() {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const API_URL = "http://localhost:5000/api/auth";
+  const API_URL = `${BACKEND_URL}/api/auth`;
 
   // ================= LOGIN =================
 

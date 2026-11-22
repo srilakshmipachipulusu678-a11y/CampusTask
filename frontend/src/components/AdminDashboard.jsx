@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { BACKEND_URL } from "../config";
 import {
   BarChart,
   Bar,
@@ -42,7 +43,7 @@ const fetchProfile = async () => {
     setProfileError("");
 
     const response = await fetch(
-      "http://localhost:5000/api/admin/profile",
+      `${BACKEND_URL}/api/admin/profile`,
       {
         credentials: "include",
       }
@@ -150,7 +151,7 @@ const [newAssignment, setNewAssignment] = useState({
 });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/admin/overview")
+    fetch(`${BACKEND_URL}/api/admin/overview`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch admin overview");
@@ -171,7 +172,7 @@ const [newAssignment, setNewAssignment] = useState({
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/admin/section-attendance")
+    fetch(`${BACKEND_URL}/api/admin/section-attendance`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch section attendance");
@@ -190,7 +191,7 @@ const [newAssignment, setNewAssignment] = useState({
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/admin/subject-average-marks")
+    fetch(`${BACKEND_URL}/api/admin/subject-average-marks`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch subject average marks");
@@ -213,7 +214,7 @@ useEffect(() => {
   if (activeSection === "students") {
     setStudentsLoading(true);
 
-    fetch("http://localhost:5000/api/admin/students")
+    fetch(`${BACKEND_URL}/api/admin/students`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch students");
@@ -237,7 +238,7 @@ useEffect(() => {
   if (activeSection === "faculty") {
     setFacultyLoading(true);
 
-    fetch("http://localhost:5000/api/admin/faculty")
+    fetch(`${BACKEND_URL}/api/admin/faculty`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch faculty");
@@ -261,7 +262,7 @@ useEffect(() => {
   if (activeSection === "departments") {
     setDepartmentsLoading(true);
 
-    fetch("http://localhost:5000/api/admin/departments")
+    fetch(`${BACKEND_URL}/api/admin/departments`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch departments");
@@ -285,7 +286,7 @@ useEffect(() => {
   if (activeSection === "sections") {
     setSectionsLoading(true);
 
-    fetch("http://localhost:5000/api/admin/sections")
+    fetch(`${BACKEND_URL}/api/admin/sections`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch sections");
@@ -298,7 +299,7 @@ useEffect(() => {
       })
       .finally(() => setSectionsLoading(false));
 
-    fetch("http://localhost:5000/api/admin/section-form-data")
+    fetch(`${BACKEND_URL}/api/admin/section-form-data`)
       .then((response) => response.json())
       .then((data) => {
         setSectionDepartments(data.departments);
@@ -315,7 +316,7 @@ useEffect(() => {
   if (activeSection === "academic-years") {
     setAcademicYearsLoading(true);
 
-    fetch("http://localhost:5000/api/admin/academic-years")
+    fetch(`${BACKEND_URL}/api/admin/academic-years`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch academic years");
@@ -335,7 +336,7 @@ useEffect(() => {
   if (activeSection === "faculty-assignments") {
     setFacultyAssignmentsLoading(true);
 
-    fetch("http://localhost:5000/api/admin/faculty-assignments")
+    fetch(`${BACKEND_URL}/api/admin/faculty-assignments`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch assignments");
@@ -348,7 +349,7 @@ useEffect(() => {
       })
       .finally(() => setFacultyAssignmentsLoading(false));
 
-    fetch("http://localhost:5000/api/admin/faculty-assignment-form-data")
+    fetch(`${BACKEND_URL}/api/admin/faculty-assignment-form-data`)
       .then((response) => response.json())
       .then((data) => {
         setAssignmentFaculty(data.faculty);
@@ -367,7 +368,7 @@ useEffect(() => {
 const toggleStudentStatus = (student) => {
   const newStatus = student.is_active ? 0 : 1;
 
-  fetch(`http://localhost:5000/api/admin/students/${student.id}/status`, {
+  fetch(`${BACKEND_URL}/api/admin/students/${student.id}/status`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
@@ -401,7 +402,7 @@ const toggleStudentStatus = (student) => {
 const toggleFacultyStatus = (member) => {
   const newStatus = member.is_active ? 0 : 1;
 
-  fetch(`http://localhost:5000/api/admin/faculty/${member.id}/status`, {
+  fetch(`${BACKEND_URL}/api/admin/faculty/${member.id}/status`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
@@ -438,7 +439,7 @@ const addDepartment = () => {
     return;
   }
 
-  fetch("http://localhost:5000/api/admin/departments", {
+  fetch(`${BACKEND_URL}/api/admin/departments`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -468,7 +469,7 @@ const deleteDepartment = (departmentId) => {
     return;
   }
 
-  fetch(`http://localhost:5000/api/admin/departments/${departmentId}`, {
+  fetch(`${BACKEND_URL}/api/admin/departments/${departmentId}`, {
     method: "DELETE"
   })
     .then((response) => {
@@ -509,7 +510,7 @@ const addSection = () => {
     return;
   }
 
-  fetch("http://localhost:5000/api/admin/sections", {
+  fetch(`${BACKEND_URL}/api/admin/sections`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -531,7 +532,7 @@ const addSection = () => {
         academic_year_id: ""
       });
 
-      fetch("http://localhost:5000/api/admin/sections")
+      fetch(`${BACKEND_URL}/api/admin/sections`)
         .then((response) => response.json())
         .then((data) => setSections(data));
 
@@ -548,7 +549,7 @@ const deleteSection = (sectionId) => {
     return;
   }
 
-  fetch(`http://localhost:5000/api/admin/sections/${sectionId}`, {
+  fetch(`${BACKEND_URL}/api/admin/sections/${sectionId}`, {
     method: "DELETE"
   })
     .then((response) => {
@@ -582,7 +583,7 @@ const addAcademicYear = () => {
     return;
   }
 
-  fetch("http://localhost:5000/api/admin/academic-years", {
+  fetch(`${BACKEND_URL}/api/admin/academic-years`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -612,7 +613,7 @@ const addAcademicYear = () => {
 
 const setCurrentAcademicYear = (yearId) => {
   fetch(
-    `http://localhost:5000/api/admin/academic-years/${yearId}/current`,
+    `${BACKEND_URL}/api/admin/academic-years/${yearId}/current`,
     {
       method: "PUT"
     }
@@ -652,7 +653,7 @@ const addFacultyAssignment = () => {
     return;
   }
 
-  fetch("http://localhost:5000/api/admin/faculty-assignments", {
+  fetch(`${BACKEND_URL}/api/admin/faculty-assignments`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -673,7 +674,7 @@ const addFacultyAssignment = () => {
         academic_year_id: ""
       });
 
-      fetch("http://localhost:5000/api/admin/faculty-assignments")
+      fetch(`${BACKEND_URL}/api/admin/faculty-assignments`)
         .then((response) => response.json())
         .then((data) => setFacultyAssignments(data));
 
@@ -691,7 +692,7 @@ const removeFacultyAssignment = (assignmentId) => {
   }
 
   fetch(
-    `http://localhost:5000/api/admin/faculty-assignments/${assignmentId}`,
+    `${BACKEND_URL}/api/admin/faculty-assignments/${assignmentId}`,
     {
       method: "DELETE"
     }
@@ -1374,7 +1375,7 @@ case "profile":
               <img
                 src={
                   profile?.profile_photo
-                    ? `http://localhost:5000${profile.profile_photo}`
+                    ? `${BACKEND_URL}${profile.profile_photo}`
                     : "https://via.placeholder.com/120"
                 }
                 alt="Admin Profile"
@@ -1405,7 +1406,7 @@ case "profile":
                       setProfilePhotoUploading(true);
 
                       const response = await fetch(
-                        "http://localhost:5000/api/admin/profile/photo",
+                        `${BACKEND_URL}/api/admin/profile/photo`,
                         {
                           method: "POST",
                           credentials: "include",
@@ -1505,7 +1506,7 @@ case "profile":
                 onClick={async () => {
                   try {
                     const response = await fetch(
-                      "http://localhost:5000/api/admin/profile",
+                      `${BACKEND_URL}/api/admin/profile`,
                       {
                         method: "PUT",
                         credentials: "include",
